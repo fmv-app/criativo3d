@@ -1,649 +1,474 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Criativo3D.Lab PRO</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Criativo3D.Lab PRO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
 
-  <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+body{
+    font-family:'Inter',sans-serif;
+    background:#020617;
+    color:#fff;
+    overflow-x:hidden;
+}
 
-    body{
-      font-family:'Inter',sans-serif;
-      background:#0b0f14;
-      color:white;
-      overflow-x:hidden;
-    }
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px 20px;
+    background:
+    radial-gradient(circle at top,#14532d 0%,#020617 45%);
+}
 
-    .container{
-      width:100%;
-      max-width:1200px;
-      margin:auto;
-      padding:0 20px;
-    }
+.hero-content{
+    max-width:1200px;
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
 
-    section{
-      padding:90px 0;
-    }
+.logo{
+    width:90px;
+    height:90px;
+    border-radius:24px;
+    margin-bottom:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.35);
+}
 
-    .hero{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      position:relative;
-      overflow:hidden;
-      background:
-      radial-gradient(circle at top right,#16a34a33,transparent 35%),
-      radial-gradient(circle at bottom left,#22c55e22,transparent 35%),
-      #0b0f14;
-    }
+.badge{
+    display:inline-block;
+    background:#14532d;
+    color:#86efac;
+    padding:10px 18px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:20px;
+}
 
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:60px;
-      align-items:center;
-    }
+h1{
+    font-size:58px;
+    line-height:1.05;
+    margin-bottom:20px;
+}
 
-    .logo{
-      width:90px;
-      margin-bottom:25px;
-      border-radius:24px;
-      box-shadow:0 10px 40px rgba(34,197,94,0.25);
-    }
+.hero p{
+    color:#cbd5e1;
+    line-height:1.8;
+    font-size:18px;
+    margin-bottom:30px;
+}
 
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      background:#16a34a22;
-      color:#4ade80;
-      border:1px solid #16a34a55;
-      padding:10px 18px;
-      border-radius:999px;
-      margin-bottom:25px;
-      font-size:14px;
-      font-weight:600;
+.buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:18px 28px;
+    border-radius:18px;
+    text-decoration:none;
+    font-weight:800;
+    transition:.25s;
+    display:inline-block;
+}
+
+.btn-primary{
+    background:linear-gradient(90deg,#16a34a,#22c55e);
+    color:#000;
+}
+
+.btn-secondary{
+    background:#111827;
+    border:1px solid #1f2937;
+    color:#fff;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.preview{
+    background:linear-gradient(180deg,#111827,#0f172a);
+    border-radius:30px;
+    padding:8px;
+    border:1px solid #1f2937;
+    box-shadow:0 20px 50px rgba(0,0,0,0.35);
+}
+
+.preview img{
+    width:100%;
+    border-radius:18px;
+}
+
+.section{
+    padding:0px 20px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.section-title p{
+    color:#94a3b8;
+    max-width:700px;
+    margin:auto;
+    line-height:1.7;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:22px;
+}
+
+.card{
+    background:linear-gradient(180deg,#111827,#0f172a);
+    border:1px solid #1f2937;
+    border-radius:24px;
+    padding:28px;
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+}
+
+.card-icon{
+    font-size:42px;
+    margin-bottom:18px;
+}
+
+.card h3{
+    margin-bottom:12px;
+    font-size:22px;
+}
+
+.card p{
+    color:#94a3b8;
+    line-height:1.7;
+}
+
+.highlight{
+    background:linear-gradient(90deg,#16a34a,#14532d);
+    border-radius:35px;
+    padding:70px 30px;
+    text-align:center;
+    margin-top:80px;
+}
+
+.highlight h2{
+    font-size:46px;
+    margin-bottom:20px;
+}
+
+.highlight p{
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.features-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:16px;
+    margin-top:40px;
+}
+
+.feature-item{
+    background:rgba(0,0,0,0.2);
+    padding:18px;
+    border-radius:18px;
+    font-weight:600;
+}
+
+footer{
+    padding:40px 20px;
+    text-align:center;
+    color:#64748b;
+    border-top:1px solid #1f2937;
+}
+
+@media(max-width:900px){
+
+    .hero-content{
+        grid-template-columns:1fr;
     }
 
     h1{
-      font-size:58px;
-      line-height:1.1;
-      margin-bottom:24px;
-      font-weight:800;
-    }
-
-    .highlight{
-      color:#4ade80;
-    }
-
-    .hero p{
-      font-size:19px;
-      color:#b4b4b4;
-      line-height:1.7;
-      margin-bottom:35px;
-    }
-
-    .buttons{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:16px 28px;
-      border-radius:18px;
-      text-decoration:none;
-      font-weight:700;
-      transition:0.3s;
-      font-size:16px;
-    }
-
-    .btn-primary{
-      background:#16a34a;
-      color:white;
-      box-shadow:0 10px 30px rgba(22,163,74,0.35);
-    }
-
-    .btn-primary:hover{
-      transform:translateY(-3px);
-      background:#15803d;
-    }
-
-    .btn-secondary{
-      border:1px solid #2d3748;
-      color:white;
-      background:#111827;
-    }
-
-    .btn-secondary:hover{
-      transform:translateY(-3px);
-      background:#1f2937;
-    }
-
-    .phone{
-      width:100%;
-      max-width:360px;
-      margin:auto;
-      background:#111827;
-      border:1px solid #1f2937;
-      border-radius:40px;
-      padding:18px;
-      box-shadow:0 20px 80px rgba(0,0,0,0.5);
-    }
-
-    .phone-screen{
-      background:#0f172a;
-      border-radius:28px;
-      overflow:hidden;
-      padding:20px;
-    }
-
-    .app-header{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      margin-bottom:22px;
-    }
-
-    .app-header img{
-      width:55px;
-      border-radius:14px;
-    }
-
-    .app-title{
-      font-weight:800;
-      font-size:20px;
-    }
-
-    .app-sub{
-      font-size:12px;
-      color:#94a3b8;
-      margin-top:2px;
-    }
-
-    .card{
-      background:#111827;
-      border:1px solid #1f2937;
-      border-radius:22px;
-      padding:22px;
-      margin-bottom:18px;
-    }
-
-    .card-title{
-      color:#4ade80;
-      font-weight:700;
-      margin-bottom:16px;
-    }
-
-    .line{
-      display:flex;
-      justify-content:space-between;
-      margin-bottom:12px;
-      color:#cbd5e1;
-    }
-
-    .profit{
-      background:#16a34a22;
-      border:1px solid #16a34a55;
-    }
-
-    .profit .line strong{
-      color:#4ade80;
-      font-size:22px;
-    }
-
-    .section-title{
-      text-align:center;
-      font-size:44px;
-      margin-bottom:18px;
-      font-weight:800;
-    }
-
-    .section-subtitle{
-      text-align:center;
-      color:#9ca3af;
-      max-width:720px;
-      margin:0 auto 60px;
-      line-height:1.8;
-      font-size:18px;
-    }
-
-    .features{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
-    }
-
-    .feature-card{
-      background:#111827;
-      border:1px solid #1f2937;
-      border-radius:28px;
-      padding:35px;
-      transition:0.3s;
-    }
-
-    .feature-card:hover{
-      transform:translateY(-6px);
-      border-color:#16a34a55;
-    }
-
-    .feature-icon{
-      font-size:42px;
-      margin-bottom:20px;
-    }
-
-    .feature-title{
-      font-size:22px;
-      font-weight:700;
-      margin-bottom:14px;
-    }
-
-    .feature-text{
-      color:#9ca3af;
-      line-height:1.7;
-    }
-
-    .pain{
-      background:#0f172a;
-    }
-
-    .pain-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:25px;
-    }
-
-    .pain-card{
-      background:#111827;
-      border-radius:24px;
-      padding:30px;
-      border:1px solid #1f2937;
-    }
-
-    .pain-card h3{
-      margin-bottom:16px;
-      color:#4ade80;
-    }
-
-    .pain-card p{
-      color:#9ca3af;
-      line-height:1.7;
-    }
-
-    .pricing{
-      text-align:center;
-    }
-
-    .pricing-box{
-      max-width:500px;
-      margin:auto;
-      background:#111827;
-      border:1px solid #16a34a55;
-      border-radius:32px;
-      padding:50px 35px;
-      box-shadow:0 20px 60px rgba(22,163,74,0.15);
-    }
-
-    .price-badge{
-      display:inline-block;
-      background:#16a34a22;
-      color:#4ade80;
-      padding:10px 18px;
-      border-radius:999px;
-      margin-bottom:24px;
-      font-weight:700;
-    }
-
-    .price{
-      font-size:68px;
-      font-weight:800;
-      margin-bottom:10px;
-    }
-
-    .price span{
-      font-size:24px;
-      color:#9ca3af;
-    }
-
-    .pricing-text{
-      color:#9ca3af;
-      line-height:1.7;
-      margin-bottom:35px;
-    }
-
-    .check-list{
-      text-align:left;
-      margin-bottom:35px;
-    }
-
-    .check-list li{
-      list-style:none;
-      margin-bottom:14px;
-      color:#d1d5db;
-    }
-
-    .check-list li::before{
-      content:'✔';
-      color:#4ade80;
-      margin-right:10px;
-    }
-
-    footer{
-      padding:40px 20px;
-      border-top:1px solid #1f2937;
-      text-align:center;
-      color:#6b7280;
-      font-size:14px;
-    }
-
-    @media(max-width:900px){
-
-      .hero-grid{
-        grid-template-columns:1fr;
-        text-align:center;
-      }
-
-      h1{
         font-size:42px;
-      }
-
-      .buttons{
-        justify-content:center;
-      }
-
-      .phone{
-        margin-top:30px;
-      }
-
-      .section-title{
-        font-size:34px;
-      }
-
     }
-	
-	.video-section{
-  padding:90px 0;
+
+    .section-title h2{
+        font-size:34px;
+    }
+
+    .highlight h2{
+        font-size:34px;
+    }
+
 }
 
-.video-wrapper{
-  max-width:300px;
-  margin:auto;
-}
-
-.video-wrapper video{
-  width:100%;
-  border-radius:28px;
-  border:1px solid #1f2937;
-  box-shadow:0 20px 60px rgba(0,0,0,0.4);
-}
-
-  </style>
+</style>
 </head>
 <body>
 
-  <section class="hero">
-    <div class="container">
+<section class="hero">
 
-      <div class="hero-grid">
+<div class="hero-content">
 
-        <div>
+<div>
 
-          <img src="logo.png" class="logo" alt="Criativo3D.Lab PRO">
+<div class="badge">
+🚀 TESTE GRÁTIS POR 3 DIAS
+</div>
 
-          <div class="badge">
-            🚀 Sistema Profissional de Precificação Maker
-          </div>
+<h1>
+A Calculadora PROFISSIONAL para Makers 3D
+</h1>
 
-          <h1>
-            Pare de vender impressão 3D <span class="highlight">sem lucro.</span>
-          </h1>
+<p>
+Calcule automaticamente custos, lucro, energia, desgaste da impressora e taxas de marketplace. Salve produtos, acompanhe relatórios e descubra o preço ideal para vender suas impressões 3D.
+</p>
 
-          <p>
-            Descubra o custo real das suas impressões 3D com cálculos automáticos de energia, desgaste da impressora, falhas, marketplaces e lucro final.
-          </p>
+<div class="buttons">
 
-          <d
-		  iv class="buttons">
+<a
+href="https://github.com/fmv-app/criativo3d/releases/download/v1.1/criativo3dv1.1.apk"
+class="btn btn-primary"
+>
+📲 TESTAR GRÁTIS
+</a>
 
-            <a href="https://github.com/fmv-app/criativo3d/releases/download/v1.0/criativo3dv1.apk" class="btn btn-primary">
-              📲 TESTAR GRÁTIS
-            </a>
 
-            <a href="#features" class="btn btn-secondary">
-              Ver Recursos
-            </a>
 
-          </div>
+</div>
 
-        </div>
+</div>
 
-        <div>
+<div class="preview" style="text-align:center;">
 
-          <div class="phone">
+<img 
+src="logo.png"
+alt="App Preview"
+style="width:180px;"
+>
 
-            <div class="phone-screen">
+</div>
 
-              <div class="app-header">
-
-                <img src="logo.png" alt="Logo">
-
-                <div>
-                  <div class="app-title">Criativo3D.Lab PRO</div>
-                  <div class="app-sub">Precificação de Produtos</div>
-                </div>
-
-              </div>
-
-              <div class="card">
-                <div class="card-title">📦 Produção</div>
-
-                <div class="line">
-                  <span>Filamento</span>
-                  <strong>R$ 12,40</strong>
-                </div>
-
-                <div class="line">
-                  <span>Energia</span>
-                  <strong>R$ 1,82</strong>
-                </div>
-
-                <div class="line">
-                  <span>Máquina</span>
-                  <strong>R$ 2,10</strong>
-                </div>
-              </div>
-
-              <div class="card profit">
-
-                <div class="card-title">📈 Resultado</div>
-
-                <div class="line">
-                  <span>Lucro Final</span>
-                  <strong>R$ 42,50</strong>
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-  
-<section class="video-section">
-
-  <div class="container">
-
-    <h2 class="section-title">
-      Veja o app funcionando
-    </h2>
-
-    <p class="section-subtitle">
-      Descubra como makers estão calculando lucro real nas impressões 3D.
-    </p>
-
-    <div class="video-wrapper">
-
-      <video controls playsinline>
-        <source src="video.mp4" type="video/mp4">
-      </video>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
-  <section id="features">
+<section class="section" style="padding-top:20px;">
 
-    <div class="container">
+<div class="container">
 
-      <h2 class="section-title">
-        Tudo que um maker precisa.
-      </h2>
+<div class="section-title">
 
-      <p class="section-subtitle">
-        Desenvolvido especificamente para impressão 3D, makers e vendas em marketplaces.
-      </p>
+<h2>
+Tudo que um Maker precisa
+</h2>
 
-      <div class="features">
+<p>
+Criado para quem vende impressões 3D e precisa calcular corretamente seus custos e lucros.
+</p>
 
-        <div class="feature-card">
-          <div class="feature-icon">⚡</div>
-          <div class="feature-title">Energia Automática</div>
-          <div class="feature-text">
-            Calcula automaticamente o custo energético baseado na potência da impressora e tarifa da sua região.
-          </div>
-        </div>
+</div>
 
-        <div class="feature-card">
-          <div class="feature-icon">🖨️</div>
-          <div class="feature-title">Custo da Máquina</div>
-          <div class="feature-text">
-            Depreciação automática baseada no valor da impressora, horas de uso e manutenção.
-          </div>
-        </div>
+<div class="grid">
 
-        <div class="feature-card">
-          <div class="feature-icon">📦</div>
-          <div class="feature-title">Marketplace</div>
-          <div class="feature-text">
-            Calcula taxas da Shopee, Mercado Livre, Amazon e outros marketplaces automaticamente.
-          </div>
-        </div>
+<div class="card">
+<div class="card-icon">🧵</div>
+<h3>Cálculo de Filamento</h3>
+<p>
+Descubra exatamente quanto cada peça consome de material.
+</p>
+</div>
 
-        <div class="feature-card">
-          <div class="feature-icon">💰</div>
-          <div class="feature-title">Lucro Real</div>
-          <div class="feature-text">
-            Descubra o lucro verdadeiro antes de vender e pare de perder dinheiro sem perceber.
-          </div>
-        </div>
+<div class="card">
+<div class="card-icon">⚡</div>
+<h3>Custo de Energia</h3>
+<p>
+Calcule automaticamente o gasto elétrico da impressão.
+</p>
+</div>
 
-      </div>
+<div class="card">
+<div class="card-icon">🖨️</div>
+<h3>Desgaste da Máquina</h3>
+<p>
+Inclui depreciação, manutenção e desgaste da impressora.
+</p>
+</div>
 
-    </div>
+<div class="card">
+<div class="card-icon">📈</div>
+<h3>Lucro Inteligente</h3>
+<p>
+Defina sua margem e descubra o preço ideal de venda.
+</p>
+</div>
 
-  </section>
+<div class="card">
+<div class="card-icon">🏪</div>
+<h3>Marketplace</h3>
+<p>
+Compatível com Shopee, Mercado Livre, Amazon e venda particular.
+</p>
+</div>
 
-  <section class="pain">
+<div class="card">
+<div class="card-icon">📁</div>
+<h3>Produtos Salvos</h3>
+<p>
+Salve seus produtos e visualize relatórios completos.
+</p>
+</div>
 
-    <div class="container">
+<div class="card">
+<div class="card-icon">📊</div>
+<h3>Relatórios</h3>
+<p>
+Veja custos detalhados de material, energia, lucro e taxas.
+</p>
+</div>
 
-      <h2 class="section-title">
-        A maioria dos makers perde dinheiro.
-      </h2>
+<div class="card">
+<div class="card-icon">🔒</div>
+<h3>Versão PRO</h3>
+<p>
+Ativação por licença com teste grátis automático.
+</p>
+</div>
 
-      <p class="section-subtitle">
-        O problema não é vender barato. O problema é não saber o custo real.
-      </p>
+</div>
 
-      <div class="pain-grid">
+<section class="section">
 
-        <div class="pain-card">
-          <h3>⚡ Energia</h3>
-          <p>
-            Muitos makers ignoram totalmente o consumo energético da impressora nas precificações.
-          </p>
-        </div>
+<div class="container">
 
-        <div class="pain-card">
-          <h3>🖨️ Desgaste</h3>
-          <p>
-            Hotend, bico, mesa, correias e manutenção acabam consumindo o lucro silenciosamente.
-          </p>
-        </div>
+<div class="section-title">
 
-        <div class="pain-card">
-          <h3>📦 Taxas</h3>
-          <p>
-            Shopee e Mercado Livre podem consumir uma parte enorme do valor final da venda.
-          </p>
-        </div>
+<h2>
+🎬 Veja o App em Funcionamento
+</h2>
 
-      </div>
+<p>
+Assista ao vídeo demonstrando todas as funcionalidades do Criativo3D.Lab PRO.
+</p>
 
-    </div>
+</div>
 
-  </section>
+<div style="
+position:relative;
+width:100%;
+max-width:1000px;
+margin:auto;
+aspect-ratio:16/9;
+border-radius:28px;
+overflow:hidden;
+background:#000;
+border:1px solid #1f2937;
+box-shadow:0 20px 50px rgba(0,0,0,0.35);
+">
 
-  <section class="pricing">
+<video
+controls
+style="
+width:100%;
+height:100%;
+object-fit:cover;
+"
+>
 
-    <div class="container">
+<source src="video.mp4" type="video/mp4">
 
-      <div class="pricing-box">
+Seu navegador não suporta vídeo.
 
-        <div class="price-badge">
-          🔥 Oferta de Lançamento
-        </div>
+</video>
 
-        <div class="price">
-          R$19<span>,90</span>
-        </div>
+</div>
 
-        <p class="pricing-text">
-          Pagamento único • Acesso vitalício • Atualizações futuras.
-        </p>
+</div>
 
-        <ul class="check-list">
-          <li>APK Android</li>
-          <li>Cálculo automático</li>
-          <li>Taxas marketplace</li>
-          <li>Sistema completo maker</li>
-          <li>Suporte via WhatsApp</li>
-        </ul>
+</section>
 
-        <a href="https://github.com/fmv-app/criativo3d/releases/download/v1.0/criativo3dv1.apk" class="btn btn-primary" style="width:100%;">
-          🚀 TESTAR GRÁTIS
-        </a>
+<div class="highlight">
 
-      </div>
+<h2>
+Comece Gratuitamente Hoje
+</h2>
 
-    </div>
+<p>
+Baixe agora o APK oficial do Criativo3D.Lab PRO e teste todas as funcionalidades por 3 dias grátis.
+</p>
 
-  </section>
+<a
+href="https://github.com/fmv-app/criativo3d/releases/download/v1.1/criativo3dv1.1.apk"
+class="btn btn-primary"
+>
+🚀 BAIXAR APK AGORA
+</a>
 
-  <footer>
-    © 2026 Criativo3D.Lab PRO — Todos os direitos reservados.
-  </footer>
+<div class="features-list">
+
+<div class="feature-item">
+✅ Teste grátis por 3 dias
+</div>
+
+<div class="feature-item">
+✅ Sem mensalidade
+</div>
+
+<div class="feature-item">
+✅ Funciona offline
+</div>
+
+<div class="feature-item">
+✅ Atualizações constantes
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+Criativo3D.Lab PRO © 2026 • Todos os direitos reservados
+
+</footer>
 
 </body>
 </html>
